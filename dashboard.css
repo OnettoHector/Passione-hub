@@ -1,0 +1,423 @@
+html{
+    overflow: hidden;
+}
+body{
+    margin:0;
+    padding:0;
+}
+.main-container{
+    height: 100vh;  
+    width: 100vw;
+    display:grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:"sidebar header"
+                        "sidebar cards";
+      background-color: blue;
+  }
+  .header{
+      grid-area:header;
+      display:grid;
+      grid-template-rows: 1fr 2fr;
+      grid-template-columns: 1fr;
+      background-color:#e9d5ff;
+      grid-template-areas: "header-top header-top";
+  }
+  .header-top{
+    display:grid;
+    grid-template-columns: .1fr 1fr 1fr;
+    grid-template-areas: "searchbox-icon searchbox userpanel";
+    grid-area:header-top;
+    background-color:#f3e8ff;
+  }
+  .search-box{
+      grid-area: searchbox;
+      justify-self: start;
+      height: 30px;
+      border-radius: 20px;
+      border:0px;
+      margin-top:20px;
+      padding-left:10px;
+      width:80%;
+  }
+  .search-box:focus{
+      border:0px;
+      outline: none;
+  }
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+    #search-icon{
+      grid-area: searchbox-icon;
+      vertical-align: middle;
+      width: 24px;
+      align-self: center;
+      justify-self:end;
+  }
+  .user-panel{
+      display:grid;
+      font-family: "Roboto  ";
+      font-weight: 400;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "bell icon username";
+      justify-content: center;
+      grid-gap:20px;
+      width: 30%;
+      padding-right: 150px;
+      justify-self: end;
+      align-items: center;
+      justify-items: center;
+      grid-area:userpanel;
+      background-size: 20px;
+  }
+  #notification-icon{
+      grid-area: bell;
+  }
+  .user-icon{
+      grid-area: icon;
+      justify-self: center;
+      width:50px;
+      border-radius: 50%;
+  }
+  .user-name{
+      grid-area: username;
+  }
+  .header-bottom{
+      display:grid;
+      grid-template-columns: 1fr 2fr 1fr;
+  }
+  .greetings-section{
+      grid-column: 1/2;
+      display:grid;
+      justify-content: start;
+      grid-template-columns: .1fr .2fr;
+      grid-template-rows: .5fr 2fr;
+      grid-template-areas: "big-icon greeting"
+                           "big-icon bigname";
+      padding-top:30px;
+      padding-left:60px;
+      font-family: Roboto;
+  }
+  .big-user-icon{
+      grid-area: big-icon;
+      align-self: start;
+      min-width: 80px;
+      max-width: 100%;
+      border-radius: 50%;
+  }
+  .greeting{
+      grid-area:greeting;
+      align-self: start;
+      margin-top:10px;
+      padding-left:5px;
+  }
+  .big-username{
+      font-family: "Roboto";
+      font-weight: 700;
+      font-size: 20px;
+      grid-area:bigname;
+      padding-left: 15px;
+  }
+  .main-title{
+      grid-column: 2/3;
+      font-family: Yellowtail;
+      font-size: 100px;
+      color:#be185d;
+      align-self: center;
+      justify-self: center;
+      padding-right:150px;
+      margin:0;
+  }
+  .header-actions{
+      display:grid;
+      padding-top:70px;
+      grid-column: 3/4;
+      justify-items: center;
+      justify-content: center;
+      grid-template-columns: .2fr .2fr .2fr;
+      grid-gap: 20px;
+  }
+  .header button{
+    background: none;
+	color: white;
+    font-family: "Roboto" !important;
+    font-weight: 700 !important;
+    background-color: #581c87;
+    border:0;
+    border-radius: 10px;
+    height: 40%;
+    width: 100%;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+  }
+  .sidebar{
+      grid-area:sidebar;
+      display:grid;
+      grid-template-rows: .1fr .5fr;
+      grid-gap: 40px;
+      align-items: start;
+      justify-items: center;
+      background-color:#581c87;
+      font-family:Roboto;
+      font-size: 20px;
+      color:white;
+  }
+  .sidebar h2{
+      font-size: 25px;
+  }
+  h2>span{
+      padding-right: 10px;
+      vertical-align: middle;
+      font-size: 48px !important;
+  }
+  .sidebar ul{
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-gap:25px;
+    margin:0;
+    padding:0;
+    grid-template-rows: 1fr repeat(8,.5fr);
+  }
+  .sidebar li{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    font-weight: 700;
+  }
+  .sidebar-btn{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  }
+  .sidebar li>span{
+      vertical-align:bottom;
+      padding-right: 10px;
+  }
+  .main-content{
+      display:grid;
+      padding: 25px 15px 25px 15px;
+      grid-template-columns: 1fr 1fr .5fr;
+      grid-template-rows: .1fr 1fr 1fr 1fr;
+      grid-template-areas: "title1 . title2"
+                           "card1 card2 long-column"
+                           "card3 card4 long-column"
+                           "card5 card6 long-column"
+                           ;
+      grid-area:cards;
+      background-color:#a78bfa;
+      grid-column-gap: 20px;
+      grid-row-gap:20px;
+  }
+  #cardTitle1{
+      grid-area: title1;
+      font-family: "Roboto";
+  }
+  #cardTitle2{
+      grid-area: title2;
+      padding-right: 120px;
+      font-family: "Roboto";
+      justify-self: center;
+  }
+  .card{
+      display:grid;
+      grid-template-columns: 20px auto 1fr;
+      grid-template-rows: auto auto auto;
+      font-family: "Roboto";
+      border-radius: 5px;
+      background-color:#e9d5ff;
+  }
+  .cardTitle{
+      grid-column: 2/2;
+      font-weight: 500;
+      vertical-align:bottom;
+      padding-left:20px;
+  }
+  .card-icon{
+      margin-left: 20px;
+      align-self: center;
+      justify-self: start;
+      grid-column: 3/3;
+      grid-row:1/1
+  }
+  .card-text{
+      margin-top:0;
+      grid-column: 2/4;
+      grid-row: 2/2;
+      padding-left:20px;
+      font-weight: 300;
+  }
+  .card-social{
+      grid-column: 3/4;
+      grid-row: 3/4;
+      justify-self: end;
+      margin-right: 20px;
+  }
+  .card button{
+    background: none;
+    font-family: "Roboto" !important;
+    font-weight: 700 !important;
+    border:0;
+	padding: 5px;
+	cursor: pointer;
+
+  }
+  .card-deco{
+      grid-row:1/4;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      background-color:#581c87;
+  }
+  .colcard{
+        text-align: center;
+        font-family: "Roboto";
+        background-color:#e9d5ff;
+        border:1px solid white
+  }
+  #card1{
+    grid-area: card1;
+  }
+  #card2{
+    grid-area: card2;  
+}
+  #card3{
+    grid-area: card3;
+}
+  #card4{
+    grid-area: card4;
+}
+  #card5{
+    grid-area: card5;
+}
+  #card6{
+    grid-area: card6;
+  }
+  #long-column{
+      grid-area: long-column;
+      display:grid;
+      grid-template-columns: 98%;
+      grid-template-rows: 1fr .1fr 1fr;
+      grid-template-areas: "col1"
+                           "coltitle"
+                           "col2";
+  }
+  #colCard1{
+    grid-area: col1;
+    display:grid;
+    grid-template-rows: .5fr 1fr .5fr 1fr .5fr 1fr;
+    grid-template-columns: 1fr;
+    justify-content:center;
+  }
+  .colCardTitle{
+      font-family: Roboto;
+      font-size:15px;
+      justify-self: start;
+      padding-left: 15px;
+      padding-top: 10px;
+      margin:0;
+  }
+  #colCard1 .col-card-text{
+      font-size: 12px;
+      padding-left: 15px;
+      position:relative;
+      align-self: center;
+      text-align: left;
+      padding-bottom: 5px;
+      margin:0;
+  }
+  .col-card-text:not(:last-child)::before{
+      content: "";
+      position:absolute;
+      border-bottom: 1px solid white;
+      text-align: center;
+      width: 80%;
+      left:30px;
+      top:105%;
+  }
+  #colCard2{
+      grid-area: col2;
+      display:grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: repeat(8,1fr);
+      grid-template-areas: "icon1 title1"
+                           "icon1 text1"
+                           "icon2 title2"
+                            "icon2 text2"
+                            "icon3 title3"
+                            "icon3 text3"
+                            "icon4 title4"
+                            "icon4 text4";
+  }
+  .other-icons{
+      width: 50%;
+      border-radius: 50%;
+      align-self: center;
+      justify-self: end;
+  }
+  #icon1{
+      grid-area: icon1;
+  }
+  #icon2{
+    grid-area: icon2;
+  }
+  #icon3{
+    grid-area: icon3;
+  }
+  #icon4{
+    grid-area: icon4;
+}
+  .mini-title{
+      font-size: 15px;
+      align-self: center;
+      padding-top: 10px;
+      padding-left: 5px;
+      justify-self: left;
+      margin:0;
+  }
+  #title1{
+      grid-area: title1;
+  }
+  #title2{
+    grid-area: title2;
+  }
+  #title3{
+    grid-area: title3;
+}
+  #title4{
+    grid-area: title4;
+}
+  #colCard2 .col-card-text{
+      align-self: top;
+      justify-self: start;
+      padding-left: 10px;
+      font-size: 12px;
+      margin:0;
+  }
+  #text1{
+      grid-area: text1;
+  }
+  #text2{
+    grid-area: text2;
+  }
+  #text3{
+    grid-area: text3;
+  }
+  #text4{
+    grid-area: text4;
+  }
+  #cardTitle3{
+      font-family: Roboto;
+      padding-top: 5px;
+      padding-bottom: 5px;
+  }
+  .main-content-title{
+      font-weight: 500;
+      margin:0;
+  }
